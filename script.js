@@ -1,12 +1,11 @@
 let notamate;
 let notalengua;
-let notaefsi
+let notaefsi;
 
 function mostrarNota(res) {
-    var contenido = document.createElement("h1");
-    var texto = document.createTextNode("Materia con la nota mayor: " + res);
-    contenido.appendChild(texto)
-    document.getElementById("respuestas").appendChild(contenido)
+
+
+    document.getElementById("h1god").innerHTML = "Materia con la nota mayor: " + res;
 
 }
 
@@ -18,9 +17,9 @@ function enviarForm(evento) {
         notalengua = parseInt(document.getElementById("nota2").value);
         notaefsi = parseInt(document.getElementById("nota3").value);
 
-        console.log(notamate)
-        console.log(notalengua)
-        console.log(notaefsi)
+        console.log(notamate);
+        console.log(notalengua);
+        console.log(notaefsi);
     }
 }
 document.getElementById("myForm").addEventListener("submit", enviarForm);
