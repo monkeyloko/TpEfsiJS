@@ -13,13 +13,15 @@ function mostrarNota(res) {
 
 function enviarForm(evento) {
     evento.preventDefault();
-    validarForm();
-    notamate = parseInt(document.getElementById("nota1").value);
-    notalengua = parseInt(document.getElementById("nota2").value);
-    notaefsi = parseInt(document.getElementById("nota3").value);
+    if (validarForm()) {
+        notamate = parseInt(document.getElementById("nota1").value);
+        notalengua = parseInt(document.getElementById("nota2").value);
+        notaefsi = parseInt(document.getElementById("nota3").value);
 
-    //}
-    //else{       }
+        console.log(notamate)
+        console.log(notalengua)
+        console.log(notaefsi)
+    }
 }
 document.getElementById("myForm").addEventListener("submit", enviarForm);
 
@@ -29,30 +31,36 @@ function CalcularPromedio() {
 }
 
 function validarForm() {
-    if (document.getElementById("nota1").value != "" || document.getElementById("nota2").value != "" || document.getElementById("nota3").value != "") {
+    var validado = true;
+    if (document.getElementById("nota1").value != "" && document.getElementById("nota2").value != "" && document.getElementById("nota3").value != "") {
 
 
-        if (document.getElementById("nota1").value > 10 || document.getElementById("nota1").value < 0) {
-
+        if (document.getElementById("nota1").value > 10 || document.getElementById("nota1").value < 1) {
+            validado = false;
             document.getElementById("nota1").style.borderColor = "red"
         } else {
             document.getElementById("nota1").style.borderColor = "green"
         }
 
-        if (document.getElementById("nota2").value > 10 || document.getElementById("nota2").value < 0) {
-
+        if (document.getElementById("nota2").value > 10 || document.getElementById("nota2").value < 1) {
+            validado = false;
             document.getElementById("nota2").style.borderColor = "red"
         } else {
             document.getElementById("nota2").style.borderColor = "green"
         }
 
-        if (document.getElementById("nota3").value > 10 || document.getElementById("nota3").value < 0) {
-
+        if (document.getElementById("nota3").value > 10 || document.getElementById("nota3").value < 1) {
+            validado = false;
             document.getElementById("nota3").style.borderColor = "red"
         } else {
             document.getElementById("nota3").style.borderColor = "green"
         }
-    } else
+
+    } else {
+        alert("Falta rellenar los inputs");
+        validado = false;
+    }
+    return validado;
 
 }
 
@@ -65,5 +73,5 @@ function NotaMasAlta() {
     } else {
         res = "Efsi";
     }
-    mostrarNota(res);
+    mostrarNota(res)
 }
