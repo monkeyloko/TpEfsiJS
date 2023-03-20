@@ -5,7 +5,14 @@ let notaefsi;
 function mostrarNota(res) {
 
 
-    document.getElementById("h1god").innerHTML = "Materia con la nota mayor: " + res;
+    document.getElementById("h1Nota").innerHTML = "Materia con la nota mayor: " + res;
+
+}
+
+function mostrarPromedio(res) {
+
+
+    document.getElementById("h1Prom").innerHTML = "El Promedio es: " + res;
 
 }
 
@@ -27,6 +34,7 @@ document.getElementById("myForm").addEventListener("submit", enviarForm);
 function CalcularPromedio() {
     var pro = (notamate + notalengua + notaefsi) / 3;
     console.log(pro);
+    mostrarPromedio(pro)
 }
 
 function validarForm() {
