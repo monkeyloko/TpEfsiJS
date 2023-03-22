@@ -3,17 +3,18 @@ let notalengua;
 let notaefsi;
 
 function mostrarNota(res) {
-
-
-    document.getElementById("h1Nota").innerHTML = "Materia con la nota mayor: " + res;
+    document.getElementById("h1Nota").innerHTML = "Materia(s) con la nota mayor: " + res;
+    document.getElementById("h1Nota").style.color = "blue";
 
 }
 
 function mostrarPromedio(res) {
-
-
     document.getElementById("h1Prom").innerHTML = "El Promedio es: " + res;
-
+    if(res >= 6){
+        document.getElementById("h1Prom").style.color = "green";
+    } else{
+        document.getElementById("h1Prom").style.color = "red";
+    }
 }
 
 
@@ -72,13 +73,16 @@ function validarForm() {
 }
 
 function NotaMasAlta() {
-    var res;
-    if (notamate >= notalengua && notamate >= notaefsi) {
-        res = "Matematicas";
-    } else if (notalengua >= notamate && notalengua >= notaefsi) {
-        res = "Lengua"
-    } else {
-        res = "Efsi";
+    var res = "";
+    var mayor = Math.max(notamate, notalengua, notaefsi);
+    if (notalengua == mayor) {
+        res += "Lengua ";
+    }
+    if (notamate && notalengua >= notaefsi) {
+        res += "Matematicas "
+    } 
+    if(notaefsi == mayor){
+        res += "Efsi ";
     }
     mostrarNota(res)
 }
