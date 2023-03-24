@@ -10,9 +10,9 @@ function mostrarNota(res) {
 
 function mostrarPromedio(res) {
     document.getElementById("h1Prom").innerHTML = "El Promedio es: " + res;
-    if(res >= 6){
+    if (res >= 6) {
         document.getElementById("h1Prom").style.color = "green";
-    } else{
+    } else {
         document.getElementById("h1Prom").style.color = "red";
     }
 }
@@ -78,10 +78,10 @@ function NotaMasAlta() {
     if (notalengua == mayor) {
         res += "Lengua ";
     }
-    if (notamate && notalengua >= notaefsi) {
+    if (notamate == mayor) {
         res += "Matematicas "
-    } 
-    if(notaefsi == mayor){
+    }
+    if (notaefsi == mayor) {
         res += "Efsi ";
     }
     mostrarNota(res)
